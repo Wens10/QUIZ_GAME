@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    color: #001f3f;
+    background-image: url('img/temple_karnak-MAX-w1000h600.jpg');
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    animation: changeBackground 25s infinite;
+}
+
+
+header {
+    display: flex;
+    background-color: black;
+    box-shadow: 1px 2px 9px rgb(105, 92, 13);
+    position: sticky;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    z-index: 100%;
+    height: max-content;
+    top: 0;
+}
+
+.titre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: rgb(199, 173, 3);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    color: whitesmoke;
+
+}
+
+#quiz-container {
+    max-width: 700px;
+
+    margin: 20px auto;
+    background: #f0f8ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 31, 63, 0.5);
+    animation: zoomIn 1s ease-in-out;
+}
+
+button {
+    background: #001f3f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #0056a3;
+    transform: scale(1.1);
+}
+
+#monument-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 10px;
+    padding-bottom: 60px;
+    background: whitesmoke;
+    color: #001f3f;
+    position: sticky;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
