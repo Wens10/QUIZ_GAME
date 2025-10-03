@@ -139,3 +139,9 @@ footer {
         opacity: 1;
     }
 }
+
+@media (max-width: 768px) {
+    #rules-container {
+        display: none;
+    }
+}

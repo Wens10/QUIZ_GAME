@@ -1,3 +1,4 @@
+// Quiz.js
 const questions = [];
 
 function addQuestion(question, answers, correct, image, name) {
@@ -10,6 +11,7 @@ function addQuestion(question, answers, correct, image, name) {
     });
 }
 
+// Ajoutez vos questions ici (inchangé)
 addQuestion("Où se trouve la Pyramide de Khéops ?", ["Soudan", "Égypte", "Mexique"], "Égypte", "img/image.jpg", "Pyramide de Khéops");
 addQuestion("Quel est le plus grand amphithéâtre de l’Empire romain ?", ["Amphithéâtre de Pula", "Théâtre d'Orange", "Colisée"], "Colisée", "img/colisé.jpg", "Colisée");
 addQuestion("Quel site antique est surnommé la ‘cité perdue des Incas’ ?", ["Machu Picchu", "Tikal", "Palenque"], "Machu Picchu", "img/machu.jpg", "Machu Picchu");
@@ -37,8 +39,6 @@ addQuestion("Quel monument emblématique se trouve sur l'île de Pâques ?", ["S
 let score = 0;
 let currentQuestionIndex = 0;
 let shuffledQuestions = shuffleArray([...questions]);
-
-
 let lives = 5;
 let timerInterval;
 
@@ -53,6 +53,7 @@ function shuffleArray(array) {
 function updateLives() {
     document.getElementById("lives").innerText = "❤️".repeat(lives);
 }
+
 function startTimer() {
     let time = 90;
     const timerElement = document.getElementById("timer");
@@ -70,7 +71,7 @@ function startTimer() {
 }
 
 function timeOut() {
-    lives--;²
+    lives--;
     updateLives();
     if (lives <= 0) {
         gameOver();
@@ -78,8 +79,6 @@ function timeOut() {
         const messageElement = document.getElementById("message");
         messageElement.innerText = "Temps écoulé ! Vous avez perdu un cœur. Passez à la question suivante.";
         document.getElementById("next-button").style.display = "inline-block";
-
-        // Make the message disappear after 3 seconds
         setTimeout(() => {
             messageElement.innerText = "";
         }, 3000);
@@ -87,20 +86,22 @@ function timeOut() {
 }
 
 function nextQuestion() {
-    document.getElementById("message").innerText = ""; // Clear the message when moving to the next question
+    document.getElementById("message").innerText = "";
     currentQuestionIndex++;
     loadQuestion();
 }
 
 function loadQuestion() {
+    // Victoire
     if (score >= 20) {
         document.getElementById("message").innerText = "Bravo ! Vous êtes un champion de culture générale !";
         document.getElementById("next-button").style.display = "none";
         document.getElementById("quit-button").style.display = "none";
         clearInterval(timerInterval);
+        addRestartButtonForWinner();
         return;
     }
-
+    // Défaite
     if (lives <= 0) {
         gameOver();
         return;
@@ -160,11 +161,6 @@ function checkAnswer(selectedAnswer, correctAnswer, image, name) {
     document.getElementById("next-button").style.display = "inline-block";
 }
 
-function nextQuestion() {
-    currentQuestionIndex++;
-    loadQuestion();
-}
-
 function startGame() {
     document.getElementById("start-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
@@ -184,12 +180,14 @@ function restartGame() {
     document.getElementById("restart-button").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
     document.getElementById("rules-container").style.display = "block";
-
     const gameOverMessage = document.getElementById("game-over-message");
     if (gameOverMessage) {
         gameOverMessage.remove();
     }
-
+    const restartWinnerBtn = document.getElementById("restart-button-winner");
+    if (restartWinnerBtn) {
+        restartWinnerBtn.remove();
+    }
     loadQuestion();
 }
 
@@ -197,7 +195,8 @@ function gameOver() {
     clearInterval(timerInterval);
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("rules-container").style.display = "none";
-
+    const oldMsg = document.getElementById("game-over-message");
+    if (oldMsg) oldMsg.remove();
     const gameOverMessage = document.createElement("div");
     gameOverMessage.id = "game-over-message";
     gameOverMessage.style.textAlign = "center";
@@ -212,56 +211,15 @@ function gameOver() {
     `;
     document.body.appendChild(gameOverMessage);
 }
+
 function addRestartButtonForWinner() {
+    if (document.getElementById("restart-button-winner")) return;
     const restartButton = document.createElement("button");
     restartButton.id = "restart-button-winner";
     restartButton.innerText = "Recommencer";
     restartButton.style.display = "block";
     restartButton.onclick = function () {
         restartGame();
-        restartButton.style.display = "none"; // Hide the button after restarting
     };
     document.getElementById("quiz-container").appendChild(restartButton);
-}
-
-function loadQuestion() {
-    if (score >= 20) {
-        document.getElementById("message").innerText = "Bravo ! Vous êtes un champion de culture générale !";
-        document.getElementById("next-button").style.display = "none";
-        document.getElementById("quit-button").style.display = "none";
-        clearInterval(timerInterval);
-        addRestartButtonForWinner();
-        return;
-    }
-
-    if (lives <= 0) {
-        gameOver();
-        return;
-    }
-
-    const questionData = shuffledQuestions[currentQuestionIndex % shuffledQuestions.length];
-    document.getElementById("question").innerText = questionData.question;
-
-    const answersContainer = document.getElementById("answers");
-    const monumentImage = document.getElementById("monument-image");
-    const nextButton = document.getElementById("next-button");
-    const quitButton = document.getElementById("quit-button");
-    const monumentName = document.getElementById("monument-name");
-
-    answersContainer.innerHTML = "";
-    monumentImage.style.display = "none";
-    nextButton.style.display = "none";
-    quitButton.style.display = "inline-block";
-    monumentName.style.display = "none";
-
-    questionData.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerText = answer;
-        button.onclick = function () {
-            checkAnswer(answer, questionData.correct, questionData.image, questionData.name);
-        };
-        answersContainer.appendChild(button);
-    });
-
-    startTimer();
 }
