@@ -165,7 +165,7 @@ function startGame() {
     document.getElementById("start-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
     if (window.innerWidth > 800) {
-        document.getElementById("rules-container").style.display = "block";
+        document.getElementById("rules-container").style.display = "none";
     } else {
         document.getElementById("rules-container").style.display = "none";
     }
@@ -183,7 +183,7 @@ function restartGame() {
     document.getElementById("message").innerText = "";
     document.getElementById("restart-button").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-    document.getElementById("rules-container").style.display = "block";
+    document.getElementById("rules-container").style.display = "none";
     const gameOverMessage = document.getElementById("game-over-message");
     if (gameOverMessage) {
         gameOverMessage.remove();

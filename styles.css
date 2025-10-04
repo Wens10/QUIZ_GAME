@@ -37,13 +37,13 @@ header {
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
+    font-size: 1.5em;
     color: rgb(199, 173, 3);
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2em;
+    font-size: 1em;
     color: whitesmoke;
 
 }
@@ -143,5 +143,82 @@ footer {
 @media (max-width: 800px) {
     #rules-container {
         display: none;
+    }
+}
+
+/* Responsive styles for all screen sizes */
+@media (max-width: 1200px) {
+    #quiz-container {
+        max-width: 90%;
+        padding: 16px;
+    }
+    header {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 0.9em;
+    }
+    #quiz-container {
+        padding: 12px;
+    }
+    button {
+        padding: 8px 12px;
+        margin: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 4px;
+    }
+    .titre {
+        align-items: flex-start;
+    }
+    #quiz-container {
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+        border-radius: 0;
+    }
+    button {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+    #monument-image {
+        margin-top: 6px;
+    }
+    footer {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 0.8em;
+    }
+    button {
+        font-size: 0.95em;
+        padding: 6px 8px;
+    }
+    footer {
+        font-size: 0.8em;
+        padding-bottom: 40px;
     }
 }
