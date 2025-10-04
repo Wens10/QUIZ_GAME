@@ -183,11 +183,7 @@ function restartGame() {
     document.getElementById("message").innerText = "";
     document.getElementById("restart-button").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-    if (window.innerWidth > 800) {
-        document.getElementById("rules-container").style.display = "block";
-    } else {
-        document.getElementById("rules-container").style.display = "none";
-    }
+    document.getElementById("rules-container").style.display = "block";
     const gameOverMessage = document.getElementById("game-over-message");
     if (gameOverMessage) {
         gameOverMessage.remove();
