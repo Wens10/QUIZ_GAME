@@ -15,7 +15,7 @@ function addQuestion(question, answers, correct, image, name) {
 addQuestion("Où se trouve la Pyramide de Khéops ?", ["Soudan", "Égypte", "Mexique"], "Égypte", "img/image.jpg", "Pyramide de Khéops");
 addQuestion("Quel est le plus grand amphithéâtre de l’Empire romain ?", ["Amphithéâtre de Pula", "Théâtre d'Orange", "Colisée"], "Colisée", "img/colisé.jpg", "Colisée");
 addQuestion("Quel site antique est surnommé la ‘cité perdue des Incas’ ?", ["Machu Picchu", "Tikal", "Palenque"], "Machu Picchu", "img/machu.jpg", "Machu Picchu");
-addQuestion("Quel est le monument emblématique du Mali datant de l’Empire du Ghana ?", ["Tombouctou", "Mosquée de Djenné", "Roches de Sindou"], "Mosquée de Djenné", "img/mosque_djenne.jpg", "Mosquée de Djenné");
+addQuestion("Quel est le monument emblématique du Mali datant de l’Empire du Ghana ?", ["Tombouctou", "Mosquée de Djenné", "Roches de Sindou"], "Mosquée de Djenné", "img/mosqué de djenné.jpg", "Mosquée de Djenné");
 addQuestion("Quelle statue colossale se dressait à l'entrée du port de Rhodes ?", ["Colosse de Rhodes", "Statue de Zeus", "Phare d’Alexandrie"], "Colosse de Rhodes", "img/colosse.jpg", "Colosse de Rhodes");
 addQuestion("Quel monument français est surnommé la Dame de Fer ?", ["Arc de Triomphe", "Tour Eiffel", "Pont Alexandre III"], "Tour Eiffel", "img/tour.jpg", "Tour Eiffel");
 addQuestion("Quel temple égyptien a été sauvé des eaux du barrage d’Assouan ?", ["Karnak", "Louxor", "Abou Simbel"], "Abou Simbel", "img/abou.jpeg", "Abou Simbel");
