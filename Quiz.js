@@ -231,3 +231,6 @@ function addRestartButtonForWinner() {
     };
     document.getElementById("quiz-container").appendChild(restartButton);
 }
+
+
+
